@@ -1,9 +1,8 @@
 <!-- BADGES DE IDENTIDADE - ESTRATÉGIA ANTI-FORK -->
 [![Professor Max](https://img.shields.io/badge/Material_do_Professor_Max-Oficial-darkred?style=for-the-badge&logo=google-scholar&logoColor=white)](https://github.com/MMVonnSeek/linux-security-guide)
 [![Repositório Original](https://img.shields.io/badge/Repositório-Original-black?style=for-the-badge&logo=github)](https://github.com/MMVonnSeek/linux-security-guide)
-[![Linux](https://img.shields.io/badge/Linux-Segurança_Prática-4c1?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/MMVonnSeek/linux-security-guide)
-[![Licença](https://img.shields.io/badge/Licença-MIT-blue?style=for-the-badge)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/MMVonnSeek/linux-security-guide?style=for-the-badge&color=FCC624)](https://github.com/MMVonnSeek/linux-security-guide/stargazers)
+[![Linux](https://img.shields.io/badge/Linux-Segurança_Prática-darkred?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/MMVonnSeek/linux-security-guide)
+[![Licença](https://img.shields.io/badge/Licença-MIT-black?style=for-the-badge)](LICENSE)
 [![Sponsor](https://img.shields.io/badge/❤️_Apoie_este_projeto-Sponsor-ea4aaa?style=for-the-badge&logo=github-sponsors)](https://github.com/sponsors/MMVonnSeek)
 
 ---
