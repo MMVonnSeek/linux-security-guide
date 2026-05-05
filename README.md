@@ -143,7 +143,7 @@ Veja o arquivo [CONTRIBUTING.md](CONTRIBUTING.md) para mais detalhes.
 
 ---
 
-## 📄 Licença
+## Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
