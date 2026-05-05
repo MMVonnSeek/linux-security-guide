@@ -1,0 +1,3 @@
+touch assets/.gitkeep
+git add assets/.gitkeep
+git commit -m "docs: mantém pasta assets para recursos visuais futuros"
