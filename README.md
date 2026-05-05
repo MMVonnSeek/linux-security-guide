@@ -31,33 +31,42 @@ O conteúdo nasceu das aulas do curso técnico de **Desenvolvimento de Sistemas*
 ---
 
 ## Estrutura do Repositório
-
-```
+``` 
 linux-security-guide/
 │
+├── README.md
+├── LICENSE
+├── CHANGELOG.md
+├── SECURITY.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+│
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   └── feature_request.md
+│   └── pull_request_template.md
+│
 ├── 01-fundamentos/
-│   ├── permissoes.md          # chmod, chown, SUID, SGID, Sticky Bit
-│   ├── processos.md           # ps, top, kill, nice, jobs
-│   └── usuarios-grupos.md     # adduser, grupos, sudoers
+│   ├── permissoes.md
+│   ├── processos.md
+│   └── usuarios-grupos.md
 │
 ├── 02-redes/
-│   ├── comandos-essenciais.md # netstat, ss, ip, curl, wget
-│   ├── firewall-nftables.md   # nftables do zero ao avançado
-│   └── analise-trafico.md     # tcpdump, wireshark CLI
+│   ├── comandos-essenciais.md
+│   ├── firewall-nftables.md
+│   └── analise-trafico.md
 │
 ├── 03-hardening/
-│   ├── ssh-seguro.md          # chave pública, fail2ban, porta customizada
-│   ├── auditoria-logs.md      # journalctl, auditd, rsyslog
-│   └── crontab-suspeito.md    # detecção de persistência via cron
+│   ├── ssh-seguro.md
+│   ├── auditoria-logs.md
+│   └── crontab-suspeito.md
 │
-├── 04-labs/
-│   ├── lab-01-permissoes.md   # Lab com exercícios e gabarito
-│   ├── lab-02-firewall.md     # Configurar regras nftables do zero
-│   └── lab-03-ssh-hardening.md
-│
-└── assets/                    # Diagramas e capturas de tela
-```
-
+└── 04-labs/
+    ├── lab-01-permissoes.md
+    ├── lab-02-firewall.md
+    └── lab-03-ssh-hardening.md
+``` 
 ---
 
 ## Como usar este guia
