@@ -165,7 +165,7 @@ Você pode usar, copiar, modificar e distribuir livremente — **desde que mante
 [![Sponsor](https://img.shields.io/badge/Apoie_este_projeto-Sponsor-ea4aaa?style=for-the-badge&logo=github-sponsors)](https://github.com/sponsors/MMVonnSeek)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Max_Muller-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/max-muller-685705248/)
 
-*Feito com ☕ e muito terminal por Professor Max — SENAI*
+*Feito com ☕ e muito terminal por Professor Max*
 
 [Voltar ao topo](#-guia-prático-de-linux-para-cibersegurança)
 
