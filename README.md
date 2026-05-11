@@ -9,7 +9,7 @@
 
 <div align="center">
 
-# 🐧 Guia Prático de Linux para Cibersegurança
+# Guia Prático de Linux para Cibersegurança
 
 **Do terminal ao hardening — conteúdo real, sem enrolação.**
 
