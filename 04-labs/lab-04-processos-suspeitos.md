@@ -63,8 +63,7 @@ echo "HTTP_PID=$HTTP_PID"
 echo "SLEEP_PID=$SLEEP_PID"
 ```
 
-<details>
-<summary>Saída esperada</summary>
+**Output esperado:**
 
 ```text
 HTTP_PID=12345
@@ -72,8 +71,6 @@ SLEEP_PID=12346
 ```
 
 Os números mudam a cada execução. O importante é ver dois PIDs válidos e nenhum erro de inicialização.
-
-</details>
 
 ---
 
@@ -87,8 +84,7 @@ Os números mudam a cada execução. O importante é ver dois PIDs válidos e ne
 ps aux --sort=-%cpu | head -n 10
 ```
 
-<details>
-<summary>Saída esperada</summary>
+**Output esperado:**
 
 ```text
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
@@ -99,8 +95,6 @@ seu_usuario 12346  0.0  0.0   2900   900 ?     S    ...     ... sh -c sleep 600
 
 Você não precisa ver exatamente os mesmos PIDs. O ponto é reconhecer a estrutura: usuário, PID, consumo e linha de comando.
 
-</details>
-
 ### Parte B — Filtrando por usuário e por PID
 
 ```bash
@@ -108,8 +102,7 @@ ps -u "$USER" -o pid,ppid,user,stat,%cpu,%mem,comm,args
 ps -p "$HTTP_PID","$SLEEP_PID" -o pid,ppid,user,stat,etime,cmd
 ```
 
-<details>
-<summary>Saída esperada</summary>
+**Output esperado:**
 
 ```text
   PID  PPID USER     STAT %CPU %MEM COMMAND         COMMAND
@@ -122,8 +115,6 @@ ps -p "$HTTP_PID","$SLEEP_PID" -o pid,ppid,user,stat,etime,cmd
 ```
 
 Se o `PPID` for diferente do que você espera, isso já merece atenção. Processos filhos de shell, web server ou serviço de sistema podem indicar execução legítima ou algo iniciado manualmente.
-
-</details>
 
 ### Parte C — Sinais práticos de alerta no `ps`
 
@@ -158,8 +149,7 @@ Dentro do `top`, pressione:
 - `u` para filtrar por usuário
 - `k` para matar um processo apenas se você tiver certeza
 
-<details>
-<summary>Saída esperada</summary>
+**Output esperado:**
 
 ```text
 top - 10:15:30 up 2 days,  3:12,  1 user,  load average: 0.10, 0.12, 0.09
@@ -173,16 +163,13 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 
 Os valores mudam de máquina para máquina. O que importa é conseguir ver o processo suspeito e acompanhar se ele cresce, some ou muda de estado.
 
-</details>
-
 ### Parte B — Capturando uma linha de `top` sem interação
 
 ```bash
 top -b -n 1 | head -n 15
 ```
 
-<details>
-<summary>Saída esperada</summary>
+**Output esperado:**
 
 ```text
 top - 10:15:35 up 2 days,  3:12,  1 user,  load average: 0.10, 0.12, 0.09
@@ -196,8 +183,6 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 
 Essa forma é útil em shell scripts, coleta remota e triagem rápida durante incidente.
 
-</details>
-
 ---
 
 ## Exercício 3 — Encontrando rede e arquivos com `netstat` e `lsof`
@@ -210,16 +195,13 @@ Essa forma é útil em shell scripts, coleta remota e triagem rápida durante in
 sudo netstat -tulpn | grep ':8080'
 ```
 
-<details>
-<summary>Saída esperada</summary>
+**Output esperado:**
 
 ```text
 tcp        0      0 0.0.0.0:8080      0.0.0.0:*      LISTEN      12345/python3
 ```
 
 Se aparecer uma porta que você não reconhece, o próximo passo é descobrir qual processo é dono dela e se esse processo faz sentido no servidor.
-
-</details>
 
 ### Parte B — Mapeando arquivos e sockets com `lsof`
 
@@ -229,8 +211,7 @@ sudo lsof -i :8080
 sudo lsof -u "$USER" | head -n 15
 ```
 
-<details>
-<summary>Saída esperada</summary>
+**Output esperado:**
 
 ```text
 COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
@@ -240,8 +221,6 @@ python3 12345 seu_usuario    3u   IPv4 ...    ...  TCP *:8080 (LISTEN)
 ```
 
 `lsof` mostra três coisas importantes ao mesmo tempo: binário executado, diretório atual e arquivos ou sockets abertos.
-
-</details>
 
 ### Parte C — O que isso denuncia na prática
 
@@ -269,8 +248,7 @@ readlink -f /proc/$HTTP_PID/exe
 pwdx "$HTTP_PID" 2>/dev/null
 ```
 
-<details>
-<summary>Saída esperada</summary>
+**Output esperado:**
 
 ```text
 python3 -m http.server 8080
@@ -287,8 +265,6 @@ Uid:    1000    1000    1000    1000
 
 `cmdline` mostra o comando real. `status` confirma usuário e estado. `exe` e `pwdx` ajudam a checar se o processo está rodando do lugar esperado.
 
-</details>
-
 ### Parte B — Verificando conexões, diretório e descritores
 
 ```bash
@@ -297,8 +273,7 @@ cat /proc/$HTTP_PID/environ | tr '\0' '\n' | head -n 10
 cat /proc/$HTTP_PID/maps | head -n 10
 ```
 
-<details>
-<summary>Saída esperada</summary>
+**Output esperado:**
 
 ```text
 lrwx------ 1 seu_usuario seu_usuario 64 ... 0 -> /dev/null
@@ -316,24 +291,19 @@ PATH=/usr/local/sbin:...
 
 O `/proc` é útil porque não depende de cache do usuário nem de output bonito. Ele mostra o estado atual do processo no kernel.
 
-</details>
-
 ### Parte C — Procurando sinais de anomalia em `maps`
 
 ```bash
 cat /proc/$HTTP_PID/maps | grep -E 'rwx|/tmp|deleted'
 ```
 
-<details>
-<summary>Saída esperada</summary>
+**Output esperado:**
 
 ```text
 
 ```
 
 Em um cenário limpo, esse comando pode não retornar nada. Se aparecer memória com `rwx`, binário em `/tmp` ou referência a arquivos `deleted`, investigue antes de encerrar qualquer coisa.
-
-</details>
 
 ---
 
@@ -359,16 +329,13 @@ cat /proc/$HTTP_PID/status
 readlink -f /proc/$HTTP_PID/exe
 ```
 
-<details>
-<summary>Saída esperada</summary>
+**Output esperado:**
 
 ```text
 Uma lista coerente de processos, uma porta 8080 associada ao PID do teste e um caminho de executável compatível com o binário em uso.
 ```
 
 Se os dados não batem entre si, trate isso como alerta. Processos legítimos contam a mesma história em `ps`, `lsof`, `netstat` e `/proc`.
-
-</details>
 
 ---
 
@@ -415,13 +382,10 @@ wait "$HTTP_PID" "$SLEEP_PID" 2>/dev/null
 ps -p "$HTTP_PID","$SLEEP_PID"
 ```
 
-<details>
-<summary>Saída esperada</summary>
+**Output esperado:**
 
 ```text
 PID TTY          TIME CMD
 ```
 
 Se ainda aparecer algo, o processo não foi encerrado. Verifique se os PIDs estão corretos antes de insistir com sinais mais agressivos.
-
-</details>
