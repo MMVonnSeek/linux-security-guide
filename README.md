@@ -1,4 +1,5 @@
 <!-- BADGES DE IDENTIDADE - ESTRATÉGIA ANTI-FORK -->
+
 [![Professor Max](https://img.shields.io/badge/Material_do_Professor_Max-Oficial-darkred?style=for-the-badge&logo=google-scholar&logoColor=white)](https://github.com/MMVonnSeek/linux-security-guide)
 [![Repositório Original](https://img.shields.io/badge/Repositório-Original-black?style=for-the-badge&logo=github)](https://github.com/MMVonnSeek/linux-security-guide)
 [![Linux](https://img.shields.io/badge/Linux-Segurança_Prática-darkred?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/MMVonnSeek/linux-security-guide)
@@ -13,11 +14,9 @@
 
 **Do terminal ao hardening — conteúdo real, sem enrolação.**
 
-*Criado e testado em sala de aula*
+_Criado e testado em sala de aula_
 
-</div>
-
----
+## </div>
 
 ## Sobre este projeto
 
@@ -30,7 +29,8 @@ O conteúdo nasceu das aulas do curso técnico de **Desenvolvimento de Sistemas*
 ---
 
 ## Estrutura do Repositório
-``` 
+
+```
 linux-security-guide/
 │
 ├── README.md
@@ -45,6 +45,9 @@ linux-security-guide/
 │   │   ├── bug_report.md
 │   │   └── feature_request.md
 │   └── pull_request_template.md
+│
+├── scripts/
+│   └── hardening.sh
 │
 ├── 01-fundamentos/
 │   ├── permissoes.md
@@ -64,8 +67,10 @@ linux-security-guide/
 └── 04-labs/
     ├── lab-01-permissoes.md
     ├── lab-02-firewall.md
-    └── lab-03-ssh-hardening.md
-``` 
+    ├── lab-03-ssh-hardening.md
+    └── lab-04-processos-suspeitos.md
+```
+
 ---
 
 ## Como usar este guia
@@ -88,32 +93,43 @@ cd linux-security-guide
 ## Módulos disponíveis
 
 ### 01 — Fundamentos
-| Tópico | O que você vai aprender |
-|--------|------------------------|
-| [Permissões](01-fundamentos/permissoes.md) | chmod octal/simbólico, SUID, SGID, Sticky Bit, casos reais de vulnerabilidade |
-| [Processos](01-fundamentos/processos.md) | Gerenciamento de processos, sinais, prioridades |
-| [Usuários e Grupos](01-fundamentos/usuarios-grupos.md) | Criação segura, sudoers, princípio do menor privilégio |
+
+| Tópico                                                 | O que você vai aprender                                                       |
+| ------------------------------------------------------ | ----------------------------------------------------------------------------- |
+| [Permissões](01-fundamentos/permissoes.md)             | chmod octal/simbólico, SUID, SGID, Sticky Bit, casos reais de vulnerabilidade |
+| [Processos](01-fundamentos/processos.md)               | Gerenciamento de processos, sinais, prioridades                               |
+| [Usuários e Grupos](01-fundamentos/usuarios-grupos.md) | Criação segura, sudoers, princípio do menor privilégio                        |
 
 ### 02 — Redes
-| Tópico | O que você vai aprender |
-|--------|------------------------|
-| [Comandos Essenciais](02-redes/comandos-essenciais.md) | Diagnóstico de rede, monitoramento de conexões |
+
+| Tópico                                                 | O que você vai aprender                           |
+| ------------------------------------------------------ | ------------------------------------------------- |
+| [Comandos Essenciais](02-redes/comandos-essenciais.md) | Diagnóstico de rede, monitoramento de conexões    |
 | [Firewall com nftables](02-redes/firewall-nftables.md) | Regras de entrada/saída, tabelas, chains, logging |
-| [Análise de Tráfego](02-redes/analise-trafico.md) | Captura e análise de pacotes em tempo real |
+| [Análise de Tráfego](02-redes/analise-trafico.md)      | Captura e análise de pacotes em tempo real        |
 
 ### 03 — Hardening
-| Tópico | O que você vai aprender |
-|--------|------------------------|
-| [SSH Seguro](03-hardening/ssh-seguro.md) | Autenticação por chave, desabilitar root, fail2ban |
-| [Auditoria de Logs](03-hardening/auditoria-logs.md) | Leitura de logs do sistema, auditd, alertas |
-| [Persistência via Cron](03-hardening/crontab-suspeito.md) | Como atacantes usam cron e como detectar |
+
+| Tópico                                                    | O que você vai aprender                            |
+| --------------------------------------------------------- | -------------------------------------------------- |
+| [SSH Seguro](03-hardening/ssh-seguro.md)                  | Autenticação por chave, desabilitar root, fail2ban |
+| [Auditoria de Logs](03-hardening/auditoria-logs.md)       | Leitura de logs do sistema, auditd, alertas        |
+| [Persistência via Cron](03-hardening/crontab-suspeito.md) | Como atacantes usam cron e como detectar           |
 
 ### 04 — Labs Práticos
-| Lab | Nível | Tempo estimado |
-|-----|-------|----------------|
-| [Lab 01 — Permissões](04-labs/lab-01-permissoes.md) | Iniciante | 30 min |
-| [Lab 02 — Firewall](04-labs/lab-02-firewall.md) | Intermediário | 45 min |
-| [Lab 03 — SSH Hardening](04-labs/lab-03-ssh-hardening.md) | Intermediário | 40 min |
+
+| Lab                                                                   | Nível         | Tempo estimado |
+| --------------------------------------------------------------------- | ------------- | -------------- |
+| [Lab 01 — Permissões](04-labs/lab-01-permissoes.md)                   | Iniciante     | 30 min         |
+| [Lab 02 — Firewall](04-labs/lab-02-firewall.md)                       | Intermediário | 45 min         |
+| [Lab 03 — SSH Hardening](04-labs/lab-03-ssh-hardening.md)             | Intermediário | 40 min         |
+| [Lab 04 — Processos Suspeitos](04-labs/lab-04-processos-suspeitos.md) | Intermediário | 50 min         |
+
+### Scripts
+
+| Script | O que faz |
+| ------ | --------- |
+| [hardening.sh](scripts/hardening.sh) | Automatiza configurações do módulo 03: SSH, fail2ban, auditd e permissões |
 
 ---
 
@@ -144,9 +160,9 @@ Veja o arquivo [CONTRIBUTING.md](CONTRIBUTING.md) para mais detalhes.
 
 ## Contato e Apoio
 
-| Canal | Link |
-|-------|------|
-| 🐙 GitHub | [@MMVonnSeek](https://github.com/MMVonnSeek) |
+| Canal      | Link                                                                     |
+| ---------- | ------------------------------------------------------------------------ |
+| 🐙 GitHub  | [@MMVonnSeek](https://github.com/MMVonnSeek)                             |
 | ❤️ Sponsor | [github.com/sponsors/MMVonnSeek](https://github.com/sponsors/MMVonnSeek) |
 
 ---
@@ -165,7 +181,7 @@ Você pode usar, copiar, modificar e distribuir livremente — **desde que mante
 [![Sponsor](https://img.shields.io/badge/Apoie_este_projeto-Sponsor-ea4aaa?style=for-the-badge&logo=github-sponsors)](https://github.com/sponsors/MMVonnSeek)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Max_Muller-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/max-muller-685705248/)
 
-*Feito com* ☕ *e muito terminal por Professor Max*
+_Feito com_ ☕ _e muito terminal por Professor Max_
 
 [Voltar ao topo](#-guia-prático-de-linux-para-cibersegurança)
 

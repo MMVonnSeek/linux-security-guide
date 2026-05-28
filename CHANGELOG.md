@@ -30,6 +30,19 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
 - `CHANGELOG.md` — este arquivo
 
 ---
+## [1.1.0] — 2026-05-28
+
+### Adicionado
+- Lab `04-labs/lab-04-processos-suspeitos.md` — detecção de processos suspeitos com ps, top, lsof, netstat e /proc
+- Script `scripts/hardening.sh` — automatiza hardening de SSH, fail2ban, auditd e permissões em Ubuntu/Debian
+
+### Alterado
+- Lab `04-labs/lab-01-permissoes.md` — adicionado output esperado em todos os exercícios
+- Lab `04-labs/lab-02-firewall.md` — adicionado output esperado em todos os exercícios
+- Lab `04-labs/lab-03-ssh-hardening.md` — adicionado output esperado em todos os exercícios e corrigida configuração de autenticação SSH (incluído ChallengeResponseAuthentication)
+- `README.md` — estrutura atualizada com lab-04 e pasta scripts
+
+---
 
 ## Formato de versões futuras
 
@@ -52,3 +65,4 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
 ---
 
 [1.0.0]: https://github.com/MMVonnSeek/linux-security-guide/releases/tag/v1.0.0
+[1.1.0]: https://github.com/MMVonnSeek/linux-security-guide/compare/v1.0.0...HEAD
