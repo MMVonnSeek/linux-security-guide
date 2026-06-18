@@ -142,6 +142,12 @@ cd linux-security-guide
 
 ---
 
+## Ferramentas relacionadas
+
+- [linux-hardening-toolkit](https://github.com/MMVonnSeek/linux-hardening-toolkit) — automatize o hardening documentado neste guia com auditoria e score de segurança
+
+---
+
 ## Como contribuir
 
 Contribuições são bem-vindas! Veja como:
